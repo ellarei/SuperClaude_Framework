@@ -10,19 +10,54 @@ Design system architecture, APIs, component interfaces, and technical specificat
 
 ## Usage
 ```
-/sc:design [target] [--type architecture|api|component|database] [--format diagram|spec|code] [--tot] [--mad] [--sc]
+/sc:design [target] [--type architecture|api|component|database] [--scope file|module|project|system] [--format diagram|spec|code] [--tot] [--mad] [--sc] [--plan] [--validate] [--uc] [--c7] [--magic]
 ```
 
 ## Arguments
 - `target` - System, component, or feature to design
-- `--type` - Design type (architecture, api, component, database)
-- `--format` - Output format (diagram, spec, code)
+
+### Core Design Flags
+- `--type` - Design type (architecture, api, component, database, ui, service)
+- `--scope` - Design scope (file, module, project, system)
+- `--format` - Output format (diagram, spec, code, documentation)
 - `--iterative` - Enable iterative design refinement
+- `--methodology` - Design methodology (ddd, clean-architecture, microservices)
+
+### Planning & Analysis Flags
+- `--plan` - Display design plan and approach before execution
+- `--think` - Multi-file design analysis for complex systems
+- `--think-hard` - Deep architectural design analysis
+- `--ultrathink` - Critical system design for enterprise-scale architectures
+- `--validate` - Pre-design validation and feasibility assessment
+
+### Efficiency & Safety Flags
+- `--uc` / `--ultracompressed` - Token-optimized design documentation
+- `--safe-mode` - Conservative design with extensive validation
+- `--verbose` - Detailed design rationale and explanations
+
+### MCP Server Control Flags
+- `--c7` / `--context7` - Enable Context7 for design patterns and architectural documentation
+- `--magic` - Enable Magic for UI/UX design and component architecture
+- `--seq` / `--sequential` - Enable Sequential for complex design orchestration
+- `--all-mcp` - Enable all MCP servers for comprehensive design support
+- `--no-mcp` - Native tools only for faster design generation
 
 ### Advanced Reasoning Flags
-- `--tot` - Use Tree-of-Thoughts to explore multiple design approaches systematically
-- `--mad` - Use Multi-Agent Debate for stakeholder-driven design decisions
-- `--sc` - Use Self-Consistency to validate design choices through multiple reasoning paths
+- `--tot` / `--tree-of-thoughts` - Explore multiple design approaches systematically
+- `--tot-branches [n]` - Number of design branches (default: 4, range: 2-8)
+- `--tot-depth [n]` - Design exploration depth (default: 3, range: 1-5)
+- `--mad` / `--multi-agent-debate` - Stakeholder-driven design decisions through expert debate
+- `--mad-agents [personas]` - Specific personas for design debate (e.g., "architect,frontend,security")
+- `--mad-rounds [n]` - Number of design debate rounds (default: 3, range: 2-5)
+- `--sc` / `--self-consistency` - Validate design choices through multiple reasoning paths
+- `--sc-paths [n]` - Number of validation paths (default: 3, range: 2-5)
+
+### Persona Integration Flags
+- `--persona-architect` - Systems architecture specialist for structural design
+- `--persona-frontend` - UI/UX specialist for interface design
+- `--persona-backend` - API and service design specialist
+- `--persona-security` - Security architect for secure design patterns
+- `--persona-performance` - Performance specialist for scalable design
 
 ## Execution
 1. Analyze requirements and design constraints

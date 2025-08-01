@@ -10,14 +10,46 @@ Deliver clear, comprehensive explanations of code functionality, concepts, or sy
 
 ## Usage
 ```
-/sc:explain [target] [--level basic|intermediate|advanced] [--format text|diagram|examples]
+/sc:explain [target] [--level basic|intermediate|advanced] [--scope file|module|project|system] [--format text|diagram|examples] [--plan] [--validate] [--uc] [--c7] [--seq]
 ```
 
 ## Arguments
 - `target` - Code file, function, concept, or system to explain
-- `--level` - Explanation complexity (basic, intermediate, advanced)
-- `--format` - Output format (text, diagram, examples)
+
+### Core Explanation Flags
+- `--level` - Explanation complexity (basic, intermediate, advanced, expert)
+- `--scope` - Explanation scope (file, module, project, system)
+- `--format` - Output format (text, diagram, examples, interactive, video-script)
 - `--context` - Additional context for explanation
+- `--audience` - Target audience (developer, manager, student, expert)
+- `--language` - Explanation language (en, es, fr, de, etc.)
+
+### Planning & Analysis Flags
+- `--plan` - Display explanation plan and structure
+- `--think` - Multi-file analysis for comprehensive explanations
+- `--validate` - Pre-explanation validation and accuracy checks
+
+### Efficiency & Safety Flags
+- `--uc` / `--ultracompressed` - Token-optimized explanations
+- `--safe-mode` - Conservative explanations with extensive validation
+- `--verbose` - Detailed explanation process and reasoning
+
+### MCP Server Control Flags
+- `--c7` / `--context7` - Enable Context7 for framework-specific explanations
+- `--seq` / `--sequential` - Enable Sequential for complex explanation orchestration
+- `--all-mcp` - Enable all MCP servers for comprehensive explanation support
+- `--no-mcp` - Native tools only for faster explanation generation
+
+### Explanation Quality Flags
+- `--interactive` - Include interactive examples and code snippets
+- `--analogies` - Use analogies and metaphors for complex concepts
+- `--step-by-step` - Break down explanations into step-by-step guides
+- `--visual` - Include visual diagrams and illustrations
+
+### Persona Integration Flags
+- `--persona-mentor` - Educational specialist for learning-focused explanations
+- `--persona-scribe` - Professional writer for clear communication
+- `--persona-architect` - Systems architect for technical architecture explanations
 
 ## Execution
 1. Analyze target code or concept thoroughly

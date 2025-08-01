@@ -10,17 +10,43 @@ Implement features, components, and code functionality with intelligent expert a
 
 ## Usage
 ```
-/sc:implement [feature-description] [--type component|api|service|feature] [--framework react|vue|express|etc] [--safe]
+/sc:implement [feature-description] [--type component|api|service|feature] [--framework react|vue|express|etc] [--scope file|module|project] [--safe] [--plan] [--validate] [--uc] [--c7] [--magic] [--seq]
 ```
 
 ## Arguments
 - `feature-description` - Description of what to implement
+
+### Core Implementation Flags
 - `--type` - Implementation type (component, api, service, feature, module)
 - `--framework` - Target framework or technology stack
+- `--scope` - Implementation scope (file, module, project)
 - `--safe` - Use conservative implementation approach
 - `--iterative` - Enable iterative development with validation steps
 - `--with-tests` - Include test implementation
 - `--documentation` - Generate documentation alongside implementation
+
+### Planning & Analysis Flags
+- `--plan` - Display implementation plan before execution
+- `--think` - Multi-file implementation analysis for complex features
+- `--validate` - Pre-implementation validation and feasibility checks
+
+### Efficiency & Safety Flags
+- `--uc` / `--ultracompressed` - Token-optimized implementation reporting
+- `--safe-mode` - Maximum validation with conservative implementation
+- `--verbose` - Detailed implementation progress and explanations
+
+### MCP Server Control Flags
+- `--c7` / `--context7` - Enable Context7 for framework patterns and best practices
+- `--magic` - Enable Magic for UI component generation and design systems
+- `--seq` / `--sequential` - Enable Sequential for complex implementation logic
+- `--all-mcp` - Enable all MCP servers for comprehensive implementation support
+- `--no-mcp` - Native tools only for faster implementation
+
+### Persona Integration Flags
+- `--persona-frontend` - Frontend specialist for UI/UX development
+- `--persona-backend` - Backend specialist for API and service implementation
+- `--persona-security` - Security specialist for secure implementation practices
+- `--persona-architect` - Systems architect for complex feature architecture
 
 ## Execution
 1. Analyze implementation requirements and detect technology context

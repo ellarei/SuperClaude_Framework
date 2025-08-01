@@ -10,19 +10,54 @@ Apply systematic improvements to code quality, performance, maintainability, and
 
 ## Usage
 ```
-/sc:improve [target] [--type quality|performance|maintainability|style] [--safe] [--tot] [--sc] [--mad]
+/sc:improve [target] [--type quality|performance|maintainability|style] [--scope file|module|project|system] [--safe] [--tot] [--sc] [--mad] [--plan] [--validate] [--uc] [--loop]
 ```
 
 ## Arguments
 - `target` - Files, directories, or project to improve
-- `--type` - Improvement type (quality, performance, maintainability, style)
+
+### Core Improvement Flags
+- `--type` - Improvement type (quality, performance, maintainability, style, security, accessibility)
+- `--scope` - Improvement scope (file, module, project, system)
 - `--safe` - Apply only safe, low-risk improvements
 - `--preview` - Show improvements without applying them
+- `--aggressive` - More thorough improvements with higher impact
+
+### Planning & Analysis Flags
+- `--plan` - Display improvement plan before execution
+- `--think` - Multi-file improvement analysis for complex refactoring
+- `--think-hard` - Deep architectural improvement analysis
+- `--validate` - Pre-improvement validation and impact assessment
+
+### Efficiency & Safety Flags
+- `--uc` / `--ultracompressed` - Token-optimized improvement reporting
+- `--safe-mode` - Conservative improvements with extensive validation
+- `--verbose` - Detailed improvement explanations and rationale
+
+### Iterative Improvement Flags
+- `--loop` - Enable iterative improvement mode (auto-activates for polish/refine requests)
+- `--iterations [n]` - Control number of improvement cycles (default: 3, range: 1-10)
+- `--interactive` - User confirmation between improvement iterations
+
+### MCP Server Control Flags
+- `--seq` / `--sequential` - Enable Sequential for systematic improvement analysis
+- `--c7` / `--context7` - Enable Context7 for improvement patterns and best practices
+- `--all-mcp` - Enable all MCP servers for comprehensive improvement support
+- `--no-mcp` - Native tools only for faster improvements
 
 ### Advanced Reasoning Flags
-- `--tot` - Use Tree-of-Thoughts to explore multiple improvement approaches
-- `--sc` - Use Self-Consistency to validate improvement effectiveness
-- `--mad` - Use Multi-Agent Debate to resolve quality trade-offs
+- `--tot` / `--tree-of-thoughts` - Explore multiple improvement approaches systematically
+- `--tot-branches [n]` - Number of improvement branches (default: 4, range: 2-8)
+- `--sc` / `--self-consistency` - Validate improvement effectiveness through multiple paths
+- `--sc-paths [n]` - Number of validation paths (default: 3, range: 2-5)
+- `--mad` / `--multi-agent-debate` - Resolve quality trade-offs through expert debate
+- `--mad-agents [personas]` - Specific personas for improvement debate (e.g., "refactorer,performance,security")
+
+### Persona Integration Flags
+- `--persona-refactorer` - Code quality specialist for maintainability improvements
+- `--persona-performance` - Optimization specialist for performance improvements
+- `--persona-security` - Security specialist for security hardening
+- `--persona-architect` - Systems architect for structural improvements
 
 ## Execution
 1. Analyze code for improvement opportunities

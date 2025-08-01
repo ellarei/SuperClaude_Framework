@@ -10,14 +10,47 @@ Generate accurate development estimates for tasks, features, or projects based o
 
 ## Usage
 ```
-/sc:estimate [target] [--type time|effort|complexity|cost] [--unit hours|days|weeks]
+/sc:estimate [target] [--type time|effort|complexity|cost] [--scope file|module|project|system] [--unit hours|days|weeks] [--plan] [--validate] [--uc] [--seq] [--c7]
 ```
 
 ## Arguments
 - `target` - Task, feature, or project to estimate
-- `--type` - Estimation type (time, effort, complexity, cost)
-- `--unit` - Time unit for estimates (hours, days, weeks)
+
+### Core Estimation Flags
+- `--type` - Estimation type (time, effort, complexity, cost, risk, resources)
+- `--scope` - Estimation scope (file, module, project, system)
+- `--unit` - Time unit for estimates (hours, days, weeks, months)
 - `--breakdown` - Provide detailed breakdown of estimates
+- `--confidence` - Include confidence intervals for estimates
+- `--methodology` - Estimation methodology (agile, waterfall, bottom-up, top-down)
+
+### Planning & Analysis Flags
+- `--plan` - Display estimation plan and approach
+- `--think` - Multi-file analysis for complex estimation scenarios
+- `--think-hard` - Deep estimation analysis for large projects
+- `--validate` - Pre-estimation validation and feasibility checks
+
+### Efficiency & Safety Flags
+- `--uc` / `--ultracompressed` - Token-optimized estimation reporting
+- `--safe-mode` - Conservative estimates with risk buffers
+- `--verbose` - Detailed estimation rationale and assumptions
+
+### MCP Server Control Flags
+- `--seq` / `--sequential` - Enable Sequential for systematic estimation analysis
+- `--c7` / `--context7` - Enable Context7 for estimation patterns and benchmarks
+- `--all-mcp` - Enable all MCP servers for comprehensive estimation support
+- `--no-mcp` - Native tools only for faster estimation generation
+
+### Estimation Quality Flags
+- `--historical` - Use historical data for estimation accuracy
+- `--team-velocity` - Factor in team velocity and capacity
+- `--risk-adjusted` - Include risk adjustments in estimates
+- `--dependencies` - Account for external dependencies
+
+### Persona Integration Flags
+- `--persona-architect` - Systems architect for technical complexity estimation
+- `--persona-analyzer` - Analysis specialist for detailed breakdown
+- `--persona-performance` - Performance specialist for optimization estimates
 
 ## Execution
 1. Analyze scope and requirements of target
