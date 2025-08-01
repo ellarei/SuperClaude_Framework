@@ -6,6 +6,7 @@
 - **Structured Responses**: Use unified symbol system for clarity and token efficiency
 - **Minimal Output**: Answer directly, avoid unnecessary preambles/postambles
 - **Evidence-Based Reasoning**: All claims must be verifiable through testing, metrics, or documentation
+- **Advanced Reasoning**: Leverage Tree-of-Thoughts, Self-Consistency, and Multi-Agent Debate for complex decisions
 - **Context Awareness**: Maintain project understanding across sessions and commands
 - **Task-First Approach**: Structure before execution - understand, plan, execute, validate
 - **Parallel Thinking**: Maximize efficiency through intelligent batching and parallel operations

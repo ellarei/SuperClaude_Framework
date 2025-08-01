@@ -15,14 +15,15 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 
 ## Usage
 ```
-/sc:workflow [prd-file|feature-description] [--persona expert] [--c7] [--sequential] [--strategy systematic|agile|mvp] [--output roadmap|tasks|detailed]
+/sc:workflow [prd-file|feature-description] [--persona expert] [--c7] [--sequential] [--strategy systematic|agile|mvp] [--output roadmap,tasks,detailed] [--output-dir path]
 ```
 
 ## Arguments
 - `prd-file|feature-description` - Path to PRD file or direct feature description
 - `--persona` - Force specific expert persona (architect, frontend, backend, security, devops, etc.)
 - `--strategy` - Workflow strategy (systematic, agile, mvp)
-- `--output` - Output format (roadmap, tasks, detailed)
+- `--output` - Output format(s) - single or comma-separated list (roadmap, tasks, detailed)
+- `--output-dir` - Directory path (relative or absolute) to save workflow files (creates separate file for each output type)
 - `--estimate` - Include time and complexity estimates
 - `--dependencies` - Map external dependencies and integrations
 - `--risks` - Include risk assessment and mitigation strategies
@@ -175,6 +176,43 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 - [ ] Rate limiting prevents abuse
 ```
 
+## File Output Configuration
+
+### File Naming Logic
+When using `--output-dir`, workflow files are automatically named based on the input and output type:
+
+**From PRD Files** (with multiple output types):
+- `docs/feature-100-prd.md` → `feature-100-roadmap.md`, `feature-100-tasks.md`, `feature-100-detailed.md`
+- `requirements/user-auth-prd.md` → `user-auth-roadmap.md`, `user-auth-tasks.md`, `user-auth-detailed.md`
+- `planning/social-integration.md` → `social-integration-roadmap.md`, `social-integration-tasks.md`, `social-integration-detailed.md`
+
+**From Feature Descriptions** (with multiple output types):
+- `"User dashboard with analytics"` → `user-dashboard-analytics-roadmap.md`, `user-dashboard-analytics-tasks.md`, `user-dashboard-analytics-detailed.md`
+- `"Payment processing API"` → `payment-processing-api-roadmap.md`, `payment-processing-api-tasks.md`, `payment-processing-api-detailed.md`
+- `"Real-time chat system"` → `real-time-chat-system-roadmap.md`, `real-time-chat-system-tasks.md`, `real-time-chat-system-detailed.md`
+
+**Single Output Type** (maintains backward compatibility):
+- `docs/feature-100-prd.md` with `--output roadmap` → `feature-100-roadmap.md`
+- `"User dashboard"` with `--output tasks` → `user-dashboard-tasks.md`
+
+### Path Handling
+- **Relative Paths**: `./docs/workflows`, `../planning`, `workflows/`
+- **Absolute Paths**: `/home/user/project/workflows`, `/project/docs/planning`
+- **Directory Creation**: Target directories are created automatically if they don't exist
+- **Path Validation**: Both relative and absolute paths are validated before file creation
+- **File Conflicts**: Existing files are handled gracefully with timestamp appending
+
+### File Format Integration
+When multiple output formats are specified, each format creates its own file with matching content structure:
+- **Roadmap Format**: Creates structured phase-based workflow files (e.g., `feature-roadmap.md`)
+- **Tasks Format**: Generates epic and story-based task files (e.g., `feature-tasks.md`)
+- **Detailed Format**: Produces comprehensive implementation workflow files (e.g., `feature-detailed.md`)
+
+**Multi-Output Benefits**:
+- **Stakeholder-Specific Views**: Different audiences can access appropriate detail levels
+- **Tool Integration**: Each format optimized for specific project management tools
+- **Workflow Flexibility**: Teams can choose their preferred format while maintaining consistency
+
 ## Advanced Features
 
 ### Dependency Analysis
@@ -232,6 +270,21 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 /sc:workflow "User dashboard with real-time analytics" --persona frontend --magic --output detailed
 ```
 
+### Save Workflow to Specific Directory
+```
+/sc:workflow docs/feature-100-prd.md --output roadmap --output-dir ./project-workflows
+```
+
+### Save with Relative Path
+```
+/sc:workflow "User authentication system" --strategy mvp --output tasks --output-dir ./docs/workflows
+```
+
+### Save with Absolute Path
+```
+/sc:workflow payment-processing-api --persona backend --output detailed --output-dir /home/user/project/planning/workflows
+```
+
 ### MVP Planning with Risk Assessment
 ```
 /sc:workflow user-authentication-system --strategy mvp --risks --parallel --milestones
@@ -242,9 +295,27 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 /sc:workflow payment-processing-api --persona backend --dependencies --c7 --output tasks
 ```
 
-### Full-Stack Feature Workflow
+### Full-Stack Feature Workflow with File Output
 ```
-/sc:workflow social-media-integration --all-mcp --sequential --parallel --estimate --output roadmap
+/sc:workflow social-media-integration --all-mcp --sequential --parallel --estimate --output roadmap --output-dir ./project-docs/workflows
+```
+
+### Generate Multiple Output Types
+```
+/sc:workflow docs/feature-100-prd.md --output roadmap,tasks,detailed --output-dir ./workflows
+# Creates: feature-100-roadmap.md, feature-100-tasks.md, feature-100-detailed.md
+```
+
+### Stakeholder-Specific Workflow Generation
+```
+/sc:workflow "User authentication system" --strategy systematic --output roadmap,tasks --output-dir ./project-planning
+# Creates: user-authentication-system-roadmap.md (for PMs), user-authentication-system-tasks.md (for developers)
+```
+
+### Complete Project Workflow Suite
+```
+/sc:workflow requirements/payment-system-prd.md --persona architect --c7 --sequential --output roadmap,tasks,detailed --estimate --risks --output-dir ./project-workflows
+# Creates comprehensive workflow documentation in three formats for different audiences
 ```
 
 ## Quality Gates and Validation
@@ -297,6 +368,7 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 
 ## Claude Code Integration
 - **Multi-Tool Orchestration** - Coordinates Read, Write, Edit, Glob, Grep for comprehensive analysis
+- **File Persistence** - Uses Write tool to save workflows to specified directories with intelligent naming
 - **Progressive Task Creation** - Uses TodoWrite for immediate next steps and Task for long-term planning
 - **MCP Server Coordination** - Intelligent routing to Context7, Sequential, and Magic based on workflow needs
 - **Cross-Command Integration** - Seamless handoff to implement, analyze, design, and other SuperClaude commands

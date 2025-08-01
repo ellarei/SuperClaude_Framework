@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **NEW COMMAND**: `/sc:implement` for feature and code implementation (addresses v2 user feedback)
+- **NEW FEATURE**: Advanced Reasoning System with Tree-of-Thoughts, Self-Consistency, and Multi-Agent Debate
+- **NEW FLAGS**: `--tot`, `--sc`, `--mad` with comprehensive configuration options
+- **NEW FILE**: Core/REASONING.md with templates, patterns, and integration guides
+- **ENHANCED**: All personas with Multi-Agent Debate capabilities and conflict resolution
+- **ENHANCED**: Key commands (`/sc:analyze`, `/sc:design`, `/sc:improve`) with reasoning integration
 - Migration logic to move existing commands to new namespace automatically
 - Enhanced uninstaller to handle both old and new command locations
 - Improved command conflict prevention
@@ -22,6 +27,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Technical Details
 - Commands now accessible as `/sc:analyze`, `/sc:build`, `/sc:improve`, etc.
+- Advanced reasoning methods auto-activate based on complexity and stakeholder requirements
+- Tree-of-Thoughts explores multiple solution approaches systematically
+- Self-Consistency validates decisions through independent reasoning paths
+- Multi-Agent Debate leverages persona expertise for multi-perspective analysis
 - Migration preserves existing functionality while preventing naming conflicts
 - Installation process detects and migrates existing commands automatically
 - Tab completion support for `/sc:` prefix to discover all SuperClaude commands

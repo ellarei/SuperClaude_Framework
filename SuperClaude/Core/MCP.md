@@ -6,12 +6,13 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 
 **Priority Matrix**:
 1. Task-Server Affinity: Match tasks to optimal servers based on capability matrix
-2. Performance Metrics: Server response time, success rate, resource utilization
-3. Context Awareness: Current persona, command depth, session state
-4. Load Distribution: Prevent server overload through intelligent queuing
-5. Fallback Readiness: Maintain backup servers for critical operations
+2. Advanced Reasoning Integration: Coordinate servers with ToT, SC, MAD methods
+3. Performance Metrics: Server response time, success rate, resource utilization
+4. Context Awareness: Current persona, command depth, session state, reasoning method
+5. Load Distribution: Prevent server overload through intelligent queuing
+6. Fallback Readiness: Maintain backup servers for critical operations
 
-**Selection Process**: Task Analysis → Server Capability Match → Performance Check → Load Assessment → Final Selection
+**Selection Process**: Task Analysis → Advanced Reasoning Assessment → Server Capability Match → Performance Check → Load Assessment → Final Selection
 
 ## Context7 Integration (Documentation & Research)
 
@@ -19,6 +20,7 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 
 **Activation Patterns**: 
 - Automatic: External library imports detected, framework-specific questions, scribe persona active
+- Advanced Reasoning: ToT branch research, SC validation against official patterns, MAD evidence gathering
 - Manual: `--c7`, `--context7` flags
 - Smart: Commands detect need for official documentation patterns
 
@@ -46,6 +48,7 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 
 **Activation Patterns**:
 - Automatic: Complex debugging scenarios, system design questions, `--think` flags
+- Advanced Reasoning: ToT branch evaluation, SC path execution, MAD debate coordination
 - Manual: `--seq`, `--sequential` flags
 - Smart: Multi-step problems requiring systematic analysis
 
