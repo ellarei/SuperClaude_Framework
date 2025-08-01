@@ -7,10 +7,11 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 **Priority Order**:
 1. Explicit user flags override auto-detection
 2. Safety flags override optimization flags
-3. Performance flags activate under resource pressure
-4. Persona flags based on task patterns
-5. MCP server flags with context-sensitive activation
-6. Wave flags based on complexity thresholds
+3. Advanced reasoning flags override standard analysis
+4. Performance flags activate under resource pressure
+5. Persona flags based on task patterns (enhanced by reasoning methods)
+6. MCP server flags with context-sensitive activation
+7. Wave flags based on complexity thresholds
 
 ## Planning & Analysis Flags
 
@@ -183,6 +184,63 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 - `--persona-devops`: Infrastructure specialist
 - `--persona-scribe=lang`: Professional writer, documentation specialist
 
+## Advanced Reasoning Flags
+
+**`--tot` / `--tree-of-thoughts`**
+- Enable systematic tree search reasoning with branch generation and pruning
+- Auto-activates: Design decisions, architecture choices, multiple viable approaches
+- Detection: "design", "architecture", "options", "trade-offs", complexity >0.7
+- Integration: Works with --think flags for deeper branch analysis
+- Token cost: High (3x-5x baseline) for comprehensive exploration
+
+**`--tot-branches [n]`**
+- Number of initial branches to generate (default: 4, range: 2-8)
+- Higher values for complex design spaces, lower for focused decisions
+
+**`--tot-depth [n]`**
+- Maximum tree search depth (default: 3, range: 1-5)
+- Deeper searches for critical architectural decisions
+
+**`--tot-prune-threshold [n]`**
+- Score threshold for branch pruning (default: 25, range: 15-40)
+- Lower thresholds = more aggressive pruning, faster execution
+
+**`--sc` / `--self-consistency`**
+- Enable multiple independent reasoning paths with consensus validation
+- Auto-activates: Critical decisions, accuracy requirements >90%, validation needs
+- Detection: "critical", "validate", "verify", "accuracy", high-stakes decisions
+- Token cost: Medium (2x-3x baseline) for multiple reasoning paths
+
+**`--sc-paths [n]`**
+- Number of independent reasoning paths (default: 3, range: 2-5)
+- More paths increase confidence but consume more tokens
+
+**`--sc-consensus [method]`**
+- Consensus method: voting, weighted, confidence-based (default: confidence-based)
+- **voting**: Simple majority rule
+- **weighted**: Confidence-weighted averaging
+- **confidence-based**: Highest confidence path wins
+
+**`--mad` / `--multi-agent-debate`**
+- Enable adversarial reasoning with persona-based debate
+- Auto-activates: Cross-functional decisions, stakeholder conflicts, trade-off analysis
+- Detection: "stakeholders", "competing priorities", decisions affecting 3+ domains
+- Token cost: Medium-High (2.5x-4x baseline) for multi-perspective analysis
+
+**`--mad-agents [personas]`**
+- Specific personas for debate (e.g., "architect,security,performance")
+- Auto-selects relevant personas based on problem domain if not specified
+
+**`--mad-rounds [n]`**
+- Number of debate rounds (default: 3, range: 2-5)
+- More rounds for complex stakeholder scenarios with deep conflicts
+
+**`--mad-resolution [method]`**
+- Resolution method: consensus, synthesis, escalation (default: synthesis)
+- **consensus**: Agreement required across all agents
+- **synthesis**: Integrate best elements from all perspectives
+- **escalation**: Defer unresolved conflicts to user or architect persona
+
 ## Introspection & Transparency Flags
 
 **`--introspect` / `--introspection`**
@@ -206,15 +264,42 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 1. Safety flags (--safe-mode) > optimization flags
 2. Explicit flags > auto-activation
 3. Thinking depth: --ultrathink > --think-hard > --think
-4. --no-mcp overrides all individual MCP flags
-5. Scope: system > project > module > file
-6. Last specified persona takes precedence
-7. Wave mode: --wave-mode off > --wave-mode force > --wave-mode auto
-8. Sub-Agent delegation: explicit --delegate > auto-detection
-9. Loop mode: explicit --loop > auto-detection based on refinement keywords
-10. --uc auto-activation overrides verbose flags
+4. Reasoning depth: --tot + --mad + --sc > individual reasoning flags > standard analysis
+5. --no-mcp overrides all individual MCP flags
+6. Scope: system > project > module > file
+7. Last specified persona takes precedence (unless --mad overrides for debate)
+8. Wave mode: --wave-mode off > --wave-mode force > --wave-mode auto
+9. Sub-Agent delegation: explicit --delegate > auto-detection
+10. Loop mode: explicit --loop > auto-detection based on refinement keywords
+11. --uc auto-activation overrides verbose flags (except for reasoning transparency)
 
 ### Context-Based Auto-Activation
+
+**Advanced Reasoning Auto-Activation**:
+```yaml
+tree_of_thoughts:
+  keywords: ["design", "architecture", "options", "approaches", "trade-offs"]
+  complexity_threshold: 0.7
+  solution_paths: "multiple_viable"
+  confidence: 85%
+  
+self_consistency:
+  keywords: ["critical", "validate", "verify", "accuracy", "mission-critical"]
+  accuracy_requirements: ">90%"
+  stakes: "high"
+  confidence: 90%
+  
+multi_agent_debate:
+  keywords: ["stakeholders", "competing", "trade-offs", "cross-functional"]
+  affected_domains: ">2"
+  persona_involvement: ">2"
+  confidence: 80%
+```
+
+**Integration Auto-Activation**:
+- **Ultra-critical decisions**: --tot + --mad + --sc (complexity >0.9, stakes = critical)
+- **Architecture decisions**: --tot + --mad (design + multi-domain impact)
+- **Validation requirements**: --sc + --tot (accuracy >90% + multiple approaches)
 
 **Wave Auto-Activation**: complexity ≥0.7 AND files >20 AND operation_types >2
 **Sub-Agent Auto-Activation**: >7 directories OR >50 files OR complexity >0.8

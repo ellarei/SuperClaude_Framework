@@ -4,11 +4,12 @@ Operational modes reference for Claude Code SuperClaude framework.
 
 ## Overview
 
-Three primary modes for optimal performance:
+Four primary modes for optimal performance:
 
 1. **Task Management**: Structured workflow execution and progress tracking
 2. **Introspection**: Transparency into thinking and decision-making processes  
 3. **Token Efficiency**: Optimized communication and resource management
+4. **Advanced Reasoning**: Multi-method reasoning with systematic exploration and validation
 
 ---
 
@@ -308,3 +309,122 @@ Meta-cognitive analysis mode that enables Claude Code to step outside normal ope
 - **Quality**: ≥95% information preservation score
 - **Speed**: <100ms compression decision and application time
 - **Integration**: Seamless SuperClaude framework compliance
+
+---
+
+# Advanced Reasoning Mode
+
+**Enhanced problem-solving through systematic exploration, validation, and synthesis.**
+
+## Purpose
+
+Coordinate complex multi-step reasoning processes that require:
+- **Systematic Exploration** via Tree-of-Thoughts
+- **Multiple Validation Paths** via Self-Consistency  
+- **Diverse Perspectives** via Multi-Agent Debate
+- **Quality Assurance** through integrated validation gates
+- **Performance Management** balancing depth with efficiency
+
+## Core Capabilities
+
+### 1. Reasoning Strategy Selection
+**Dynamic Method Selection**: Choose optimal reasoning approach based on:
+- Problem complexity and criticality
+- Available time and token budget
+- Accuracy requirements and stakes
+- Number of stakeholders and perspectives involved
+
+### 2. Process Orchestration
+**Multi-Method Coordination**:
+- Sequential reasoning (ToT → MAD → SC)
+- Parallel validation (ToT || SC)
+- Iterative refinement (multiple reasoning cycles)
+- Escalation chains (progressive reasoning depth)
+
+### 3. Quality Assurance Integration
+**10-Step Enhanced Validation Cycle**:
+- Method selection validation
+- Resource feasibility check
+- Branch/path quality gates
+- Reasoning consistency validation
+- Integration coherence check
+- Confidence calibration
+- Actionability verification
+- Reversibility planning
+- Learning capture
+- Outcome prediction
+
+### 4. Performance Management
+**Intelligent Resource Allocation**:
+- Token budget distribution across reasoning methods
+- Time-boxing with graceful degradation
+- Parallel processing where possible
+- Caching of reasoning results for reuse
+
+### 5. Integration with Existing Modes
+**Seamless Mode Coordination**:
+- **Task Management**: Complex reasoning tracked as multi-step todos
+- **Introspection**: Reasoning transparency and meta-cognitive analysis
+- **Token Efficiency**: Automatic compression when budget constraints detected
+
+## Activation Patterns
+
+**Auto-Activation Triggers**:
+- Problem complexity score >0.8
+- Multiple viable solution paths detected
+- Cross-functional stakeholder involvement
+- High-stakes decisions requiring validation
+- Previous reasoning attempts failed or incomplete
+
+**Manual Activation**:
+- Any advanced reasoning flag (--tot, --sc, --mad)
+- Explicit /reason command usage
+- Integration with Wave mode for multi-stage reasoning
+
+**Integration Activation**:
+- Escalation from other modes when simple approaches fail
+- Wave mode orchestration for complex reasoning campaigns
+- Multi-session reasoning projects via /task command
+
+## State Management
+
+**Reasoning Session Tracking**:
+- Maintain context across multiple reasoning stages
+- Track branch exploration and pruning decisions
+- Preserve debate arguments and resolution rationale
+- Enable rollback to previous reasoning states
+
+**Progress Visualization**:
+- Real-time reasoning progress indicators
+- Branch/path completion status
+- Debate round progress and resolution status
+- Quality gate validation results
+
+**Context Preservation**:
+- Cross-method reasoning context sharing
+- Integration with existing memory systems
+- Persistence for multi-session reasoning projects
+
+## Reasoning Method Specifications
+
+### Tree-of-Thoughts (ToT)
+**Process**: Generate → Evaluate → Prune → Explore → Select
+**Optimization**: Branch diversity scoring and intelligent pruning
+**Integration**: Works with persona expertise for branch evaluation
+
+### Self-Consistency (SC)
+**Process**: Generate paths → Execute reasoning → Consensus → Validate
+**Optimization**: Confidence-weighted voting and path diversity
+**Integration**: Validates reasoning outputs from other methods
+
+### Multi-Agent Debate (MAD)
+**Process**: Position → Challenge → Evidence → Synthesis → Resolution
+**Optimization**: Structured rounds with evidence-based resolution
+**Integration**: Leverages persona debate capabilities and conflict resolution
+
+## Performance Targets
+
+**Reasoning Quality**: 95% decision confidence with uncertainty bounds
+**Resource Efficiency**: <5x token cost for 3x decision quality improvement
+**Time Management**: Adaptive time-boxing with quality-based extensions
+**Integration Speed**: <200ms mode switching and context preservation

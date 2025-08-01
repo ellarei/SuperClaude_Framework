@@ -7,6 +7,7 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ### Task Management Rules
 - TodoRead() → TodoWrite(3+ tasks) → Execute → Track progress
 - Use batch tool calls when possible, sequential only when dependencies exist
+- Apply advanced reasoning (ToT, SC, MAD) for complex decisions and validation
 - Always validate before execution, verify after completion
 - Run lint/typecheck before marking tasks complete
 - Use /spawn and /task for complex multi-session workflows
@@ -40,9 +41,10 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ✅ Read before Write/Edit/Update
 ✅ Use absolute paths
 ✅ Batch tool calls
+✅ Apply advanced reasoning for complex decisions
 ✅ Validate before execution
 ✅ Check framework compatibility
-✅ Auto-activate personas
+✅ Auto-activate personas and reasoning methods
 ✅ Preserve context across operations
 ✅ Use quality gates (see ORCHESTRATOR.md)
 ✅ Complete discovery before codebase changes
@@ -60,6 +62,7 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ❌ Mark complete without verification
 
 ### Auto-Triggers
+- Advanced reasoning: ToT for design, SC for validation, MAD for conflicts
 - Wave mode: complexity ≥0.7 + multiple domains
 - Personas: domain keywords + complexity assessment  
 - MCP servers: task type + performance requirements

@@ -164,6 +164,117 @@ wave_operations:
 - **Thresholds**: Default 0.7, customizable via `--wave-threshold`, enterprise strategy lowers file thresholds
 - **Decision Logic**: Sum all indicators, trigger waves when total ≥ threshold
 
+## 🧠 Advanced Reasoning Engine
+
+Multi-method reasoning orchestration with Tree-of-Thoughts, Self-Consistency, and Multi-Agent Debate integration.
+
+### Reasoning Method Selection Algorithm
+
+**Selection Matrix**:
+1. **Problem Complexity Analysis**: Scope, stakeholders, solution paths, criticality
+2. **Resource Assessment**: Token budget, time constraints, accuracy requirements
+3. **Method Suitability Scoring**: Match problem characteristics to reasoning strengths
+4. **Integration Strategy**: Combine methods for maximum effectiveness
+5. **Quality Gate Planning**: Define validation checkpoints and success criteria
+
+**Method Selection Logic**:
+```yaml
+tree_of_thoughts:
+  triggers:
+    - Design decisions with multiple architectures
+    - Solution spaces with >3 viable approaches
+    - Trade-off analysis requiring systematic exploration
+  optimal_for: "Exploration and systematic option evaluation"
+  token_cost: "High (3x-5x baseline)"
+  time_complexity: "O(branches × depth)"
+  auto_activates: "complexity >0.7 AND solution_paths >2"
+
+self_consistency:
+  triggers:
+    - Critical decisions requiring validation
+    - Complex calculations or analysis
+    - High-stakes outcomes with accuracy requirements >90%
+  optimal_for: "Validation and confidence building"
+  token_cost: "Medium (2x-3x baseline)"
+  time_complexity: "O(paths × reasoning_length)"
+  auto_activates: "stakes = high AND accuracy_requirements >90%"
+
+multi_agent_debate:
+  triggers:
+    - Cross-functional decisions affecting multiple domains
+    - Stakeholder conflicts requiring synthesis
+    - Problems benefiting from diverse perspectives
+  optimal_for: "Perspective integration and bias reduction"
+  token_cost: "Medium-High (2.5x-4x baseline)"
+  time_complexity: "O(agents × rounds × complexity)"
+  auto_activates: "domains >2 AND stakeholder_involvement >2"
+```
+
+### Advanced Reasoning Quality Gates
+
+**Enhanced 10-Step Validation Cycle**:
+```yaml
+reasoning_quality_gates:
+  step_1_method_selection: "Optimal reasoning method for problem characteristics"
+  step_2_resource_validation: "Token budget and time constraints feasible"
+  step_3_branch_quality: "ToT branches sufficiently diverse and viable"
+  step_4_path_consistency: "SC paths show internal logical consistency"
+  step_5_debate_resolution: "MAD reaches meaningful synthesis or consensus"
+  step_6_integration_coherence: "Combined reasoning results are coherent"
+  step_7_confidence_calibration: "Uncertainty explicitly identified and bounded"
+  step_8_actionability: "Results provide clear implementation guidance"
+  step_9_reversibility: "Reasoning enables rollback if outcomes don't match"
+  step_10_learning_integration: "Insights captured for future reasoning improvement"
+
+validation_automation:
+  reasoning_transparency: "All branches/paths/debates documented with rationale"
+  performance_monitoring: "Token efficiency and time metrics tracked"
+  quality_scoring: "Reasoning effectiveness measured against outcomes"
+  adaptive_improvement: "Method selection refined based on success rates"
+```
+
+### Reasoning Integration Patterns
+
+**Hybrid Reasoning Strategies**:
+```yaml
+sequential_integration:
+  pattern: "ToT → MAD → SC"
+  use_case: "Ultra-critical decisions requiring exploration, debate, and validation"
+  example: "Architecture decisions affecting security, performance, and UX"
+  trigger_conditions: "complexity >0.9 AND stakes = critical"
+
+parallel_validation:
+  pattern: "ToT || SC (simultaneous)"
+  use_case: "Time-constrained decisions needing both exploration and validation"
+  example: "Emergency bug fixes with multiple potential solutions"
+  trigger_conditions: "time_pressure = high AND solution_paths >2"
+
+iterative_refinement:
+  pattern: "ToT → SC → MAD → refined_ToT"
+  use_case: "Complex problems requiring multiple reasoning cycles"
+  example: "System redesign with evolving requirements"
+  trigger_conditions: "requirements_stability = low AND complexity >0.8"
+
+escalation_chain:
+  pattern: "Standard → SC → ToT → MAD"
+  use_case: "Progressive reasoning depth based on initial confidence"
+  example: "Implementation decisions that reveal additional complexity"
+  trigger_conditions: "initial_confidence <70% AND complexity_growth detected"
+```
+
+### Advanced Reasoning Routing Table
+
+**Reasoning-Enhanced Master Routing Table**:
+| Pattern | Complexity | Domain | Auto-Activates | Reasoning Method | Confidence |
+|---------|------------|---------|----------------|------------------|------------|
+| "comprehensive system design" | complex | multi | --tot --mad --agents architect,security,performance --sc-validation | ToT+MAD+SC | 95% |
+| "critical bug analysis" | high | any | --sc --paths 3 --tot-branches 4 --persona-analyzer | SC+ToT | 90% |
+| "cross-team feature decision" | moderate-high | multi | --mad --agents frontend,backend,qa --sc-consensus weighted | MAD+SC | 88% |
+| "architecture trade-off analysis" | complex | infrastructure | --tot --mad --agents architect,security,performance | ToT+MAD | 92% |
+| "security vs performance decision" | complex | security/performance | --mad --agents security,performance,architect --sc-validation | MAD+SC | 87% |
+| "validate critical implementation" | moderate | any | --sc --paths 3 --consensus confidence-based | SC | 85% |
+| "explore design alternatives" | moderate | design | --tot --branches 4 --depth 2 | ToT | 83% |
+
 ## 🚦 Routing Intelligence
 
 Dynamic decision trees that map detected patterns to optimal tool combinations, persona activation, and orchestration strategies.
@@ -366,6 +477,14 @@ token_optimization:
 - Refactoring → --persona-refactorer + --wave-strategy systematic + --validate
 - Iterative improvement → --loop for polish, refine, enhance keywords
 
+**Advanced Reasoning Auto-Activation**:
+- Design decisions → --tot when multiple viable approaches detected
+- Critical decisions → --sc when accuracy requirements >90% or stakes = high
+- Cross-functional conflicts → --mad when domains >2 and stakeholder involvement detected
+- Ultra-critical architecture → --tot + --mad + --sc for complexity >0.9
+- Validation requirements → --sc + --tot when accuracy critical and multiple solutions exist
+- Stakeholder alignment → --mad + --sc for consensus building with validation
+
 **Wave Auto-Activation**:
 - Complex multi-domain → --wave-mode auto when complexity >0.8 AND files >20 AND types >2
 - Enterprise scale → --wave-strategy enterprise when files >100 AND complexity >0.7 AND domains >2
@@ -388,14 +507,15 @@ token_optimization:
 #### Flag Precedence Rules
 1. Safety flags (--safe-mode) > optimization flags
 2. Explicit flags > auto-activation
-3. Thinking depth: --ultrathink > --think-hard > --think
-4. --no-mcp overrides all individual MCP flags
-5. Scope: system > project > module > file
-6. Last specified persona takes precedence
-7. Wave mode: --wave-mode off > --wave-mode force > --wave-mode auto
-8. Sub-Agent delegation: explicit --delegate > auto-detection
-9. Loop mode: explicit --loop > auto-detection based on refinement keywords
-10. --uc auto-activation overrides verbose flags
+3. Advanced reasoning depth: --tot + --mad + --sc > individual reasoning flags > standard analysis
+4. Thinking depth: --ultrathink > --think-hard > --think
+5. --no-mcp overrides all individual MCP flags
+6. Scope: system > project > module > file
+7. Last specified persona takes precedence (unless --mad overrides for debate)
+8. Wave mode: --wave-mode off > --wave-mode force > --wave-mode auto
+9. Sub-Agent delegation: explicit --delegate > auto-detection
+10. Loop mode: explicit --loop > auto-detection based on refinement keywords
+11. --uc auto-activation overrides verbose flags (except for reasoning transparency)
 
 ### Confidence Scoring
 Based on pattern match strength (40%), historical success rate (30%), context completeness (20%), resource availability (10%).

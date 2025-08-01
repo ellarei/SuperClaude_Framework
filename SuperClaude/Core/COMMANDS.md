@@ -18,13 +18,15 @@ performance-profile: "optimization|standard|complex"
 ### Command Processing Pipeline
 1. **Input Parsing**: `$ARGUMENTS` with `@<path>`, `!<command>`, `--<flags>`
 2. **Context Resolution**: Auto-persona activation and MCP server selection
-3. **Wave Eligibility**: Complexity assessment and wave mode determination
-4. **Execution Strategy**: Tool orchestration and resource allocation
-5. **Quality Gates**: Validation checkpoints and error handling
+3. **Reasoning Assessment**: Advanced reasoning method selection (ToT, SC, MAD)
+4. **Wave Eligibility**: Complexity assessment and wave mode determination
+5. **Execution Strategy**: Tool orchestration and resource allocation
+6. **Quality Gates**: Validation checkpoints and error handling
 
 ### Integration Layers
 - **Claude Code**: Native slash command compatibility
 - **Persona System**: Auto-activation based on command context
+- **Advanced Reasoning**: Tree-of-Thoughts, Self-Consistency, Multi-Agent Debate
 - **MCP Servers**: Context7, Sequential, Magic, Playwright integration
 - **Wave System**: Multi-stage orchestration for complex operations
 
@@ -49,6 +51,7 @@ performance-profile: "optimization"
 ---
 ```
 - **Auto-Persona**: Frontend, Backend, Architect, Scribe
+- **Advanced Reasoning**: ToT for build optimization exploration, SC for critical build validation
 - **MCP Integration**: Magic (UI builds), Context7 (patterns), Sequential (logic)
 - **Tool Orchestration**: [Read, Grep, Glob, Bash, TodoWrite, Edit, MultiEdit]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
@@ -64,6 +67,7 @@ performance-profile: "standard"
 ---
 ```
 - **Auto-Persona**: Frontend, Backend, Architect, Security (context-dependent)
+- **Advanced Reasoning**: ToT for implementation approach exploration, MAD for cross-functional alignment
 - **MCP Integration**: Magic (UI components), Context7 (patterns), Sequential (complex logic)
 - **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
 - **Arguments**: `[feature-description]`, `--type component|api|service|feature`, `--framework <name>`, `--<flags>`
@@ -82,6 +86,7 @@ performance-profile: "complex"
 ---
 ```
 - **Auto-Persona**: Analyzer, Architect, Security
+- **Advanced Reasoning**: ToT for comprehensive analysis exploration, SC for critical analysis validation, MAD for multi-perspective analysis
 - **MCP Integration**: Sequential (primary), Context7 (patterns), Magic (UI analysis)
 - **Tool Orchestration**: [Read, Grep, Glob, Bash, TodoWrite]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
@@ -104,6 +109,7 @@ performance-profile: "optimization"
 ---
 ```
 - **Auto-Persona**: Refactorer, Performance, Architect, QA
+- **Advanced Reasoning**: ToT for improvement approach exploration, SC for improvement validation, MAD for quality trade-off resolution
 - **MCP Integration**: Sequential (logic), Context7 (patterns), Magic (UI improvements)
 - **Tool Orchestration**: [Read, Grep, Glob, Edit, MultiEdit, Bash]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
@@ -117,13 +123,13 @@ performance-profile: "optimization"
 
 **`/estimate [target] [flags]`** - Evidence-based estimation | Auto-Persona: Analyzer, Architect | MCP: Sequential, Context7
 
-**`/task [operation] [flags]`** - Long-term project management | Auto-Persona: Architect, Analyzer | MCP: Sequential
+**`/task [operation] [flags]`** - Long-term project management | Auto-Persona: Architect, Analyzer | Advanced Reasoning: ToT for task approach exploration, MAD for stakeholder alignment | MCP: Sequential
 
 **`/test [type] [flags]`** - Testing workflows | Auto-Persona: QA | MCP: Playwright, Sequential
 
 **`/git [operation] [flags]`** - Git workflow assistant | Auto-Persona: DevOps, Scribe, QA | MCP: Sequential
 
-**`/design [domain] [flags]`** - Design orchestration | Auto-Persona: Architect, Frontend | MCP: Magic, Sequential, Context7
+**`/design [domain] [flags]`** - Design orchestration | Auto-Persona: Architect, Frontend | Advanced Reasoning: ToT + MAD for comprehensive design exploration | MCP: Magic, Sequential, Context7
 
 ### Meta & Orchestration Commands
 
@@ -155,5 +161,10 @@ complex: "Resource-intensive with comprehensive analysis"
 - **Meta**: index, load, spawn
 
 ### Wave-Enabled Commands
-7 commands: `/analyze`, `/build`, `/design`, `/implement`, `/improve`, `/task`, `/workflow`
+6 commands: `/analyze`, `/build`, `/design`, `/implement`, `/improve`, `/task`
+
+### Advanced Reasoning Integration
+- **Primary Commands**: `/analyze`, `/design`, `/implement`, `/improve`, `/task` support full ToT+MAD+SC integration
+- **Secondary Commands**: `/build`, `/troubleshoot`, `/estimate` support reasoning method auto-activation
+- **All Commands**: Support `--tot`, `--sc`, `--mad` flags for explicit reasoning method selection
 
